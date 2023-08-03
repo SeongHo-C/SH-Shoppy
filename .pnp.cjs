@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-icons", "virtual:16e654a9d365e02f7e28ac465e17fac93840604085351a9f6343f69b3a793d34618b538eea2150d2f1f567e908e7676db665faf19a175c38c1abccd63a770793#npm:4.10.1"],\
             ["react-router-dom", "virtual:16e654a9d365e02f7e28ac465e17fac93840604085351a9f6343f69b3a793d34618b538eea2150d2f1f567e908e7676db665faf19a175c38c1abccd63a770793#npm:6.14.2"],\
             ["react-scripts", "virtual:16e654a9d365e02f7e28ac465e17fac93840604085351a9f6343f69b3a793d34618b538eea2150d2f1f567e908e7676db665faf19a175c38c1abccd63a770793#npm:5.0.1"],\
+            ["tailwindcss", "npm:3.3.3"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
@@ -15925,6 +15926,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-icons", "virtual:16e654a9d365e02f7e28ac465e17fac93840604085351a9f6343f69b3a793d34618b538eea2150d2f1f567e908e7676db665faf19a175c38c1abccd63a770793#npm:4.10.1"],\
             ["react-router-dom", "virtual:16e654a9d365e02f7e28ac465e17fac93840604085351a9f6343f69b3a793d34618b538eea2150d2f1f567e908e7676db665faf19a175c38c1abccd63a770793#npm:6.14.2"],\
             ["react-scripts", "virtual:16e654a9d365e02f7e28ac465e17fac93840604085351a9f6343f69b3a793d34618b538eea2150d2f1f567e908e7676db665faf19a175c38c1abccd63a770793#npm:5.0.1"],\
+            ["tailwindcss", "npm:3.3.3"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
