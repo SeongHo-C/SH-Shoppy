@@ -3,22 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import App from './App';
 import Home from './pages/Home';
-import ErrorPage from './pages/ErrorPage';
 import AllProducts from './pages/AllProducts';
 import NewProduct from './pages/NewProduct';
 import ProductDetail from './pages/ProductDetail';
 import MyCart from './pages/MyCart';
-import App from './App';
+import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
+        path: '/',
         element: <Home />,
       },
       {
@@ -30,11 +31,11 @@ const router = createBrowserRouter([
         element: <NewProduct />,
       },
       {
-        path: 'products/:id',
+        path: '/products/:id',
         element: <ProductDetail />,
       },
       {
-        path: 'carts',
+        path: '/carts',
         element: <MyCart />,
       },
     ],
