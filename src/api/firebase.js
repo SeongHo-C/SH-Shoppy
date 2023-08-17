@@ -17,7 +17,7 @@ const firebaseConfig = {
 };
 
 // firebase 초기화
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const database = getDatabase();
@@ -51,7 +51,7 @@ async function adminUser(user) {
 
 export async function addNewProduct(product, image) {
   const id = uuid();
-  set(ref(database, `products/${id}`), {
+  return set(ref(database, `products/${id}`), {
     ...product,
     id,
     price: parseInt(product.price),
