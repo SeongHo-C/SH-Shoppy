@@ -1,9 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillPencilFill } from 'react-icons/bs';
-import { AiFillHeart } from 'react-icons/ai';
-import User from './User';
-import Button from './ui/Button';
+import { AiOutlineHeart } from 'react-icons/ai';
 import { useAuthContext } from '../context/AuthContext';
 import CartStatus from './CartStatus';
 
@@ -11,44 +8,65 @@ export default function Navbar() {
     const { user, login, logout } = useAuthContext();
 
     return (
-        <div className='w-full flex justify-between items-center p-4 max-w-screen-2xl'>
+        <nav className='w-full flex justify-between items-center p-4 max-w-screen-2xl'>
             <div className='flex items-center'>
                 <Link className='text-[#5a514b] text-2xl tracking-widest' to='/'>
-                    <h1>SH Shoppy</h1>
+                    SH Shoppy
                 </Link>
-                <nav className='flex items-center gap-6 font-semibold text-[#877b73] text-sm mx-8'>
-                    <Link to='/'>Home</Link>
-                    <Link to='/products'>Shop</Link>
-                    <a
-                        href='https://leeseong010.tistory.com/'
-                        rel='noopener noreferrer'
-                        target='_blank'
-                    >
-                        Blog
-                    </a>
-                </nav>
+                <ul className='flex items-center gap-6  text-brand text-sm ml-8'>
+                    <li>
+                        <Link to='/'>Home</Link>
+                    </li>
+                    <li>
+                        <Link to='/products'>Shop</Link>
+                    </li>
+                    <li>
+                        <a
+                            href='https://leeseong010.tistory.com/'
+                            rel='noopener noreferrer'
+                            target='_blank'
+                        >
+                            Blog
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div className='flex items-center text-sm'>
+            <ul className='flex items-center gap-4 text-lg'>
                 {user?.isAdmin && (
-                    <Link to='/products/new'>
-                        <BsFillPencilFill />
-                    </Link>
+                    <li>
+                        <Link to='/products/new'>
+                            <BsFillPencilFill />
+                        </Link>
+                    </li>
                 )}
                 {user && (
-                    <div className='flex'>
-                        <Link to='/products/like'>
-                            <AiFillHeart />
-                        </Link>
-                        <Link to='/carts'>
-                            <CartStatus />
-                        </Link>
-                    </div>
+                    <>
+                        <li>
+                            <Link className='flex items-center' to='/products/like'>
+                                <AiOutlineHeart />
+                                <p className='w-5 h-5 text-sm text-center bg-brand text-white font-semibold rounded-full ml-1'>
+                                    0
+                                </p>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/carts'>
+                                <CartStatus />
+                            </Link>
+                        </li>
+                    </>
                 )}
-
-                {user && <User user={user} />}
-                {!user && <Button text={'Login'} onClick={login} />}
-                {user && <Button text={'Logout'} onClick={logout} />}
-            </div>
-        </div>
+                {!user && (
+                    <button className='text-sm hover:underline decoration-1' onClick={login}>
+                        Login
+                    </button>
+                )}
+                {user && (
+                    <button className='text-sm hover:underline decoration-1' onClick={logout}>
+                        Logout
+                    </button>
+                )}
+            </ul>
+        </nav>
     );
 }
