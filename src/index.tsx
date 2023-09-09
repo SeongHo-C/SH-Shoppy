@@ -11,6 +11,7 @@ import ProductDetail from './pages/ProductDetail';
 import MyCart from './pages/MyCart';
 import NotFound from './pages/NotFound';
 import ProtectedRoute from './pages/ProtectedRoute';
+import LikeProducts from 'pages/LikeProducts';
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
                     <MyCart />
                     // </ProtectedRoute>
                 ),
+            },
+            {
+                path: '/products/like',
+                element: <LikeProducts />,
             },
         ],
     },
