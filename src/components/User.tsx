@@ -7,5 +7,5 @@ interface UserProps {
 }
 
 export default function User({ user: { displayName } }: UserProps) {
-    return <span className='hidden md:block text-sm'>{displayName}</span>;
+    return <span className='text-sm'>{displayName}</span>;
 }
