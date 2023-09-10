@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BsFillPencilFill } from 'react-icons/bs';
+import { BsPencil } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { useAuthContext } from '../context/AuthContext';
 import CartStatus from './CartStatus';
@@ -42,7 +42,7 @@ export default function Navbar() {
                 {user?.isAdmin && (
                     <li>
                         <Link to='/products/new'>
-                            <BsFillPencilFill />
+                            <BsPencil />
                         </Link>
                     </li>
                 )}

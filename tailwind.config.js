@@ -9,6 +9,9 @@ module.exports = {
             backgroundImage: {
                 banner: `url('../public/images/banner.jpg')`,
             },
+            spacing: {
+                120: '30rem',
+            },
         },
     },
     plugins: [],
