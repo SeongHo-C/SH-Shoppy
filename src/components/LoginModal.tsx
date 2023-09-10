@@ -1,4 +1,5 @@
 import { useAuthContext } from 'context/AuthContext';
+import { MouseEvent, useEffect, useRef } from 'react';
 import { MdOutlineCancel } from 'react-icons/md';
 
 interface LoginModalProps {
@@ -7,10 +8,25 @@ interface LoginModalProps {
 
 export default function LoginModal({ onModal }: LoginModalProps) {
     const { login } = useAuthContext();
+    const modalRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const clickOutside = (e: CustomEvent<MouseEvent>): void => {
+            if (modalRef.current && !modalRef.current.contains(e.target as HTMLElement)) {
+                onModal();
+            }
+        };
+
+        document.addEventListener('mousedown', clickOutside as EventListener);
+
+        return () => {
+            document.removeEventListener('mousedown', clickOutside as EventListener);
+        };
+    }, [onModal]);
 
     return (
         <section className='flex justify-center items-center fixed inset-0 z-10 bg-black/[.4] backdrop-blur-sm'>
-            <div className='flex flex-col w-96 h-96 bg-white rounded-2xl p-4'>
+            <div ref={modalRef} className='flex flex-col w-96 h-96 bg-white rounded-2xl p-4'>
                 <div className='text-end'>
                     <button
                         className='text-2xl text-zinc-500 transition duration-300 hover:scale-110'
