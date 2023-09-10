@@ -3,9 +3,16 @@ import { BsFillPencilFill } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { useAuthContext } from '../context/AuthContext';
 import CartStatus from './CartStatus';
+import { useState } from 'react';
+import LoginModal from './LoginModal';
 
 export default function Navbar() {
-    const { user, login, logout } = useAuthContext();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const { user, logout } = useAuthContext();
+
+    const handleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
 
     return (
         <nav className='w-full flex justify-between items-center p-4 max-w-screen-2xl'>
@@ -57,10 +64,11 @@ export default function Navbar() {
                     </>
                 )}
                 {!user && (
-                    <button className='text-sm hover:underline decoration-1' onClick={login}>
+                    <button className='text-sm hover:underline decoration-1' onClick={handleModal}>
                         Login
                     </button>
                 )}
+                {isModalOpen && <LoginModal onModal={handleModal} />}
                 {user && (
                     <button className='text-sm hover:underline decoration-1' onClick={logout}>
                         Logout
