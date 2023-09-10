@@ -9,8 +9,8 @@ export default function LoginModal({ onModal }: LoginModalProps) {
     const { login } = useAuthContext();
 
     return (
-        <section className='flex justify-center items-center fixed inset-0 z-10 bg-black/[.4]'>
-            <div className='flex flex-col w-96 h-96 bg-white rounded-xl p-4'>
+        <section className='flex justify-center items-center fixed inset-0 z-10 bg-black/[.4] backdrop-blur-sm'>
+            <div className='flex flex-col w-96 h-96 bg-white rounded-2xl p-4'>
                 <div className='text-end'>
                     <button
                         className='text-2xl text-zinc-500 transition duration-300 hover:scale-110'
