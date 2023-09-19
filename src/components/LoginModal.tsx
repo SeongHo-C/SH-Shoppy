@@ -38,9 +38,9 @@ export default function LoginModal({ onModal }: LoginModalProps) {
                 <div className='flex flex-auto flex-col justify-around items-center'>
                     <h1 className='text-3xl text-brand'>LOGIN</h1>
                     <div className='flex flex-col items-center gap-4'>
-                        <button>
+                        {/* <button>
                             <img src='/images/kakaoLogo.png' alt='카카오 로그인' />
-                        </button>
+                        </button> */}
                         <button onClick={login}>
                             <img src='/images/googleLogo.png' alt='구글 로그인' />
                         </button>
